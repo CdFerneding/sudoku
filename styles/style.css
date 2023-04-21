@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 90vh;
+}
+
+#grid {
+    position: relative;
+    max-height: 900px;
+    width: 60%;
+    aspect-ratio: 1/1;
+    /*ensures that the grid is a square*/
+    flex-wrap: wrap;
+    /*border: solid 6px black;*/
+    transform: scale(0.7);
+    float: left;
+}
+
+.button {
+    display: block;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 28px;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    float: right;
+}
+
+.row {
+    width: 100%;
+    height: calc(100% / 9);
+    background-color: white;
+    display: flex;
+}
+
+.cell {
+    width: calc(100% / 9);
+    height: 100%;
+    background-color: white;
+    border: solid 1px black;
+    text-align: center;
+    display: flex;
+    /* Display the cell as a flex container */
+    justify-content: center;
+    /* Horizontally center the content */
+    align-items: center;
+    /* Vertically center the content */
+
+    /* number displaying */
+    font-size: 3.5vw;
+    /* Increase font size for the number */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cell:click {
+    background-color: yellow;
+}
+
+.row.underline {
+    border-bottom: 4px solid black;
+}
+
+.cell.rightline {
+    border-right: 4px solid black;
+}
