@@ -2,7 +2,7 @@
  * undo is implemented by a stack that will be pushed (Koordinates, Number) 
  * when a number gets added to the grid
  * the stack will be popped when: the undo button is pressed
- * --> the stack must be global of some kind: getCurrentStack
+ * --> the stack must be global of some kind
  */
 
 interface IStack<T> {
