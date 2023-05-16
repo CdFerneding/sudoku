@@ -1,6 +1,6 @@
 import { checkGrid } from "./CheckingGrid/checkingGrid";
-import { createBoard } from "./ManagingGrid/creatingGrid";
-import { clearBoard } from "./ManagingGrid/clearingGrid";
+import { createBoard } from "./ManagingGrid/create";
+import { clearBoard } from "./ManagingGrid/clear";
 import { undoStep } from "./ManagingGrid/undo";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
 import * as Repo from "./Repository/sudokuTestGrid"
