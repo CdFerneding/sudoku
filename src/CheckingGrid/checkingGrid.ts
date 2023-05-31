@@ -4,7 +4,7 @@ import { getCurrentGrid } from "../Getter/getGrid";
 // functions for the check Button
 
 /**
- * the main checking function that will use all other function in this file
+ * the main checking function that will use all other function in this file (and getting the current grid)
  */
 const checkGrid = (): string => {
     let output: string;
@@ -13,11 +13,11 @@ const checkGrid = (): string => {
         output = `something went wrong with fetching the grid :S`;
         alert(output);
         return output;
-    }else if (gridIsFull() != true) {
+    }else if (gridIsFull() !== true) {
         output = `the grid is not fully filled :S`;
         alert(output);
         return output;
-    }else if (checkRowsAndColumns() != true && checkBoxes() != true) {
+    }else if (checkRowsAndColumns() !== true && checkBoxes() !== true) {
         output = `the grid is incorrect :S`;
         alert(output);
         return output;
@@ -32,7 +32,7 @@ const gridIsFull = (): boolean   => {
     const g = getCurrentGrid();
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            if (g[i][j] == "") {
+            if (g[i][j] == null) {
                 return false;
             }
         }
@@ -47,15 +47,15 @@ const gridIsFull = (): boolean   => {
  * as per sudoku rules
  */
 const checkRowsAndColumns = (): boolean => {
-    const g = getCurrentGrid();
+    const currentGrid = getCurrentGrid();
     let counterRows = new Array(9).fill(0);
     let counterColumns = new Array(9).fill(0);
     for (let i = 0; i < 9; i++) {
         counterRows.fill(0); 
         counterColumns.fill(0);
         for (let j = 0; j < 9; j++) {
-            const numRow = Number.parseInt(g[i][j]);
-            const numCol = Number.parseInt(g[j][i]);
+            const numRow = currentGrid[i][j];
+            const numCol = currentGrid[j][i];
             counterRows[numRow-1]++;
             counterColumns[numCol-1]++;
             if(counterRows[numRow-1] != 1) return false;
@@ -95,7 +95,7 @@ const boxCheckHelper = (fromRow: number, toRow: number, fromColumn: number, toCo
     //     || fromColumn == null || fromColumn == undefined || toColumn == null || toColumn == undefined) return false;
     for (let i = fromRow; i <= toRow; i++) {
         for (let j = fromColumn; j <= toColumn; j++) {
-            const num = Number.parseInt(g[i][j]);
+            const num = g[i][j];
             counter[num-1]++;
             if (counter[num-1] > 1) return false;
         }

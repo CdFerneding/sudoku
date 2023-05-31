@@ -1,6 +1,6 @@
 
 
-const  findSingle = (): string[][] => {
+const  findSingle = (): number[][] => {
     return;
 }
 
