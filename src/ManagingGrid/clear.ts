@@ -2,10 +2,10 @@ import { createBoard } from "./create";
 
 // -----------------------------------------------clearing the Grid----------------------------------------------------------
 
-const createVoidBoard = (): string[][] => {
-    let grid: string[][] = [];
+const createVoidBoard = (): number[][] => {
+    let grid: number[][] = [];
     for(let i = 0; i < 9; i++) {
-        grid[i] = new Array(9).fill("");
+        grid[i] = new Array(9).fill(null);
     }
     return grid;
 }
@@ -13,7 +13,9 @@ const createVoidBoard = (): string[][] => {
 const deleteBoard = (): void => {
     const grid = document.getElementById(`grid`);
     if(grid === null) return;
-    grid.remove();
+    while(grid.lastChild) {
+        grid.removeChild(grid.lastChild);
+    }
 }
 
 const clearBoard = (): void => {

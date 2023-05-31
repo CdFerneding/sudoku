@@ -4,6 +4,7 @@ import { clearBoard } from "./ManagingGrid/clear";
 import { undoStep } from "./ManagingGrid/undo";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
 import * as Repo from "./Repository/sudokuTestGrid"
+import { solveGrid } from "./ManagingGrid/solve";
 // import { getCurrentGrid } from "./Getter/getGrid";
 
 // debugger; 
@@ -29,11 +30,13 @@ window.addEventListener("keydown", function(e) {
 
 const undoButton = document.getElementById(`undo`);
 if(undoButton !== null) {
-    undoButton.addEventListener("click", undoStep);
-    
-      
-}
-else alert(`we've got a problem with the undo button`);
+    undoButton.addEventListener("click", undoStep);     
+} else alert(`we've got a problem with the undo button`);
+
+const solveButton = document.getElementById('solve');
+if(solveButton !== null || solveButton !== undefined) {
+    solveButton.addEventListener('click', solveGrid);
+} else alert(`we've got a problem with the undo button`);
 
 //-------------------------------------------executing------------------------------------------------------------------
 
