@@ -2,7 +2,7 @@ import { createBoard } from "./create";
 
 // -----------------------------------------------clearing the Grid----------------------------------------------------------
 
-const createVoidBoard = (): number[][] => {
+const createVoidGrid = (): number[][] => {
     let grid: number[][] = [];
     for(let i = 0; i < 9; i++) {
         grid[i] = new Array(9).fill(null);
@@ -20,11 +20,7 @@ const deleteBoard = (): void => {
 
 const clearBoard = (): void => {
     deleteBoard();
-    const grid = document.createElement(`div`);
-    if(grid === null) return;
-    grid.id = `grid`;
-    document.body.append(grid);
-    createBoard(createVoidBoard());
+    createBoard(createVoidGrid());
 }
 
-export { clearBoard }
+export { clearBoard, deleteBoard }

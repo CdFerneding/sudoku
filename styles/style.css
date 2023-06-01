@@ -17,6 +17,7 @@ body {
     /*border: solid 6px black;*/
     transform: scale(0.7);
     float: left;
+    padding: 50px;
 }
 
 .button {

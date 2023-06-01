@@ -4,12 +4,8 @@ import { undoStack } from "./undo";
 // creating Grid with eventListener inputting cells
 // a function creating a 9x9 grid of squares
 const createBoard = (withGrid: number[][]): void => {
-    console.log(`called 'createBoard' function from:`);
-    withGrid.forEach((elem: number[]) => {
-        console.log(`${elem}\n`);
-    });
     const grid = document.getElementById("grid");
-    if(grid === null) return;
+    if(grid === null || grid === undefined) return;
 
     // create 9 rows for the sudoku grid
     withGrid.forEach((elem: number[], rowIndex: number) => {
@@ -17,7 +13,7 @@ const createBoard = (withGrid: number[][]): void => {
         if(row === null) return;
         row.classList.add('row');
         row.setAttribute("row", `${rowIndex}`);
-        if (rowIndex == 2 || rowIndex == 5) row.classList.add('underline');
+        if (rowIndex === 2 || rowIndex === 5) row.classList.add('underline');
         grid.append(row);
 
         // insert cells into each row
@@ -30,7 +26,7 @@ const createBoard = (withGrid: number[][]): void => {
             if (colIndex == 2 || colIndex == 5) cell.classList.add('rightline');
 
             // const cellNumber = Number.parseInt(value.toString());
-            if(value === null) {
+            if(value === null || value === 0) {
                 cell.setAttribute("type", "button");
                 cell.addEventListener("click", addNumber);
             } else cell.innerText = value.toString();
