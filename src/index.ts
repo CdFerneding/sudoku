@@ -44,4 +44,4 @@ if(solveButton !== null || solveButton !== undefined) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(Repo.testGrid);
+createBoard(RandomGrid.getRandomHardGrid());
