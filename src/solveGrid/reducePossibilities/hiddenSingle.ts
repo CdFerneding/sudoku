@@ -30,7 +30,9 @@ const applyHiddenSingle = (grid: Grid): Grid => {
             });
 
             if (hiddenSingleFound) {
-                continue;
+                // initial logic error by me:
+                // we need to RETURN not continue!!
+                return grid;
             }
 
             // Check for hidden singles in the column
@@ -55,7 +57,7 @@ const applyHiddenSingle = (grid: Grid): Grid => {
             });
 
             if (hiddenSingleFound) {
-                continue;
+                return grid;
             }
 
             // Check for hidden singles in the box
@@ -83,7 +85,7 @@ const applyHiddenSingle = (grid: Grid): Grid => {
                 }
             });
             if (hiddenSingleFound) {
-                continue;
+                return grid;
             }
             // --> going for the next Cell in the next for-iteration
 
