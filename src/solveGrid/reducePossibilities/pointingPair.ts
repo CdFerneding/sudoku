@@ -12,7 +12,7 @@ const applyPointingPairs = (grid: Grid): Grid => {
             // Get the possible values and cells to update in the box
             for (let r = boxRow; r < boxRow + 3; r++) {
                 for (let c = boxColumn; c < boxColumn + 3; c++) {
-                    const cell = updatedGrid.getCell(r, c);
+                    const cell = updatedGrid.getCell(r, c).copy();
                     if (cell.isEmpty()) {
                         const possibleValues = cell.getPossibleValues();
                         for (const value of possibleValues) {
@@ -31,7 +31,7 @@ const applyPointingPairs = (grid: Grid): Grid => {
                 let sameColumn: number | undefined;
 
                 for (const { row, column } of cellsToUpdate) {
-                    const cell = updatedGrid.getCell(row, column);
+                    const cell = updatedGrid.getCell(row, column).copy();
                     if (cell.getPossibleValues().includes(value)) {
                         if (sameRow === undefined) {
                             sameRow = row;
@@ -52,7 +52,7 @@ const applyPointingPairs = (grid: Grid): Grid => {
                     const endColumn = boxColumn + 3 - (boxColumn % 3);
                     for (let c = startColumn; c < endColumn; c++) {
                         if (c < boxColumn || c >= boxColumn + 3) {
-                            const cell = updatedGrid.getCell(sameRow, c);
+                            const cell = updatedGrid.getCell(sameRow, c).copy();
                             if (cell.isEmpty() && cell.getPossibleValues().includes(value)) {
                                 cell.removePossibleValue(value);
                             }
@@ -65,7 +65,7 @@ const applyPointingPairs = (grid: Grid): Grid => {
                     const endRow = boxRow + 3 - (boxRow % 3);
                     for (let r = startRow; r < endRow; r++) {
                         if (r < boxRow || r >= boxRow + 3) {
-                            const cell = updatedGrid.getCell(r, sameColumn);
+                            const cell = updatedGrid.getCell(r, sameColumn).copy();
                             if (cell.isEmpty() && cell.getPossibleValues().includes(value)) {
                                 cell.removePossibleValue(value);
                             }
@@ -77,6 +77,6 @@ const applyPointingPairs = (grid: Grid): Grid => {
     }
 
     return updatedGrid;
-};
+}
 
 export { applyPointingPairs };
