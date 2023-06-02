@@ -1,4 +1,4 @@
-import { undoStack } from "./undo";
+import { undoStack } from "../button/undo";
 
 // --------------------------------------------creating Grid----------------------------------------------------------
 // creating Grid with eventListener inputting cells
