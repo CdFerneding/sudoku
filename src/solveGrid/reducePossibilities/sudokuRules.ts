@@ -12,6 +12,7 @@ const applySudokuRules = (grid: Grid): Grid => {
     const cells = grid.getCells();
 
     cells.forEach((cell: Cell) => {
+        if(cell.getValue() !== 0) return;
         const row = cell.getRow();
         const column = cell.getColumn();
         const box = cell.getBox();
@@ -20,7 +21,7 @@ const applySudokuRules = (grid: Grid): Grid => {
         // Remove values already present in the same row
         for (let c = 0; c < 9; c++) {
             const value = grid.getCell(row, c).getValue();
-            if (value !== null && possibleValues.includes(value)) {
+            if (c !== column && value !== null && possibleValues.includes(value)) {
                 cell.removePossibleValue(value);
             }
         }
@@ -28,7 +29,7 @@ const applySudokuRules = (grid: Grid): Grid => {
         // Remove values already present in the same column
         for (let r = 0; r < 9; r++) {
             const value = grid.getCell(r, column).getValue();
-            if (value !== null && possibleValues.includes(value)) {
+            if (r !== row && value !== null && possibleValues.includes(value)) {
                 cell.removePossibleValue(value);
             }
         }
@@ -39,7 +40,7 @@ const applySudokuRules = (grid: Grid): Grid => {
         for (let r = boxRow; r < boxRow + 3; r++) {
             for (let c = boxColumn; c < boxColumn + 3; c++) {
                 const value = grid.getCell(r, c).getValue();
-                if (value !== null && possibleValues.includes(value)) {
+                if ((r !== row || c !== column) && value !== null && possibleValues.includes(value)) {
                     cell.removePossibleValue(value);
                 }
             }
@@ -49,6 +50,6 @@ const applySudokuRules = (grid: Grid): Grid => {
     });
 
     return grid;
-};
+}
 
 export { applySudokuRules }

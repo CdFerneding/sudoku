@@ -2,6 +2,7 @@ import { Grid } from "../Entities/Grid";
 import { applyHiddenSingle } from "./reducePossibilities/hiddenSingle";
 import { applySudokuRules } from "./reducePossibilities/sudokuRules";
 import { applyPointingPairs } from "./reducePossibilities/pointingPair";
+import { applyNakedSingle } from "./findNumbers/nakedSingle";
 
 
 
@@ -12,42 +13,54 @@ import { applyPointingPairs } from "./reducePossibilities/pointingPair";
  */
 const solveSudoku = (grid: Grid): Grid => {
     console.log(`inside 'solveSudoku' method.`);
-    let isGridFilled = false;
     let hasMadeChanges = false;
     const maxIterations = 10;
     let iteration = 0;
 
     do {
         hasMadeChanges = false;
+        let oldGrid;
 
-        // Apply hidden singles technique
-        let updatedGrid = applyHiddenSingle(grid);
-        if (grid !== updatedGrid) {
-            grid = updatedGrid;
-            hasMadeChanges = true;
-        }
+        // apply Sudoku rules
+        do {
+            hasMadeChanges = false;
+            oldGrid = grid.copy();
+            // Execute sudokuRules to reduce possibilities
+            grid = applySudokuRules(grid);
+            console.log(!grid.equals(oldGrid));
+            if (!grid.equals(oldGrid)) {
+                hasMadeChanges = true;
+            }
 
-        // Apply Sudoku rules to reduce possibilities
-        updatedGrid = applySudokuRules(grid);
-        if (grid !== updatedGrid) {
-            grid = updatedGrid;
-            hasMadeChanges = true;
-        }
+            // Check for naked singles
+            oldGrid = grid.copy();
+            grid = applyNakedSingle(grid);
+            if (!grid.equals(oldGrid)) {
+                hasMadeChanges = true;
+            }
+        } while (!grid.isFull() && hasMadeChanges);
+
+        // apply hidden sinles technique
+            oldGrid = grid.copy();
+            // execute hiddenSingle Algorithm
+            grid = applyHiddenSingle(grid);
+            if (!grid.equals(oldGrid)) {
+                hasMadeChanges = true;
+            }
+            oldGrid = grid.copy();
 
         // Apply pointing pairs technique
-        updatedGrid = applyPointingPairs(grid);
-        if (grid !== updatedGrid) {
-            grid = updatedGrid;
-            hasMadeChanges = true;
-        }
+        // oldGrid = new Grid(grid.toNumberArray());
+        // grid = applyPointingPairs(grid);
+        // if (grid !== updatedGrid) {
+        //     oldGrid = grid;
+        //     hasMadeChanges = true;
+        // }
 
-        // Check if the grid is filled
-        const cells = grid.getCells();
-        isGridFilled = cells.every((cell) => cell.getValue() !== 0);
         iteration++;
-    } while (!isGridFilled && hasMadeChanges && iteration <= maxIterations);
+    } while (!grid.isFull() && hasMadeChanges && iteration <= maxIterations);
 
     return grid;
-};
+}
 
-export { solveSudoku };
+export { solveSudoku }

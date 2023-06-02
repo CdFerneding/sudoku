@@ -15,7 +15,6 @@ class Cell {
 		this.possibleValues = possiblesValues;
 	}
 
-
 	public getRow() { return this.row }
 	public getColumn() { return this.column }
 	public getBox() { return this.box }
@@ -30,6 +29,16 @@ class Cell {
 		return copiedCell;
 	}
 
+	public copy(): Cell {
+		const copiedCell = new Cell();
+		copiedCell.row = this.row;
+		copiedCell.column = this.column;
+		copiedCell.box = this.box;
+		copiedCell.value = this.value;
+		copiedCell.possibleValues = [...this.possibleValues];
+		return copiedCell;
+	}
+
 	public removePossibleValue(value: number) {
 		const index = this.possibleValues.indexOf(value);
 		if (index > -1) {
@@ -41,9 +50,34 @@ class Cell {
 		return this.value === 0 || this.value === null;
 	}
 
+	public equals(otherCell: Cell): boolean {
+		return (
+			this.row === otherCell.getRow() &&
+			this.column === otherCell.getColumn() &&
+			this.box === otherCell.getBox() &&
+			this.value === otherCell.getValue() &&
+			arraysEqual(this.possibleValues, otherCell.getPossibleValues())
+		);
+	}
+
 	// public includesPossibility(value: number): boolean {
 	// 	return this.possibleValues.includes(value);
 	// }
+}
+
+// Helper function to compare arrays for equality
+function arraysEqual(arr1: any[], arr2: any[]): boolean {
+	if (arr1.length !== arr2.length) {
+		return false;
+	}
+
+	for (let i = 0; i < arr1.length; i++) {
+		if (arr1[i] !== arr2[i]) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 export { Cell }
