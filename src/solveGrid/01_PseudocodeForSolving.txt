@@ -1,0 +1,12 @@
+Steps for solving a grid I am using:
+
+1. Find 'hidden singles', insert them into the grid (the easy grids can be solved with this tequnique only!)
+2. while there are still empty cells: 
+    2.1 Apply 'sudoku rules', 'poitin pairs', 'hidden pairs' and other tequniques to reduces the 
+        possible Values for each cell.
+    2.2 Apply 'naked Single' to check if any empty cell has only one possible value left
+
+
+'hidden single' --> 
+'sudoku rules' -->
+'naked single' --> 

@@ -1,11 +1,11 @@
-import { checkGrid } from "./CheckingGrid/checkingGrid";
+import { checkGrid } from "./button/checkingGrid";
 import { createBoard } from "./ManagingGrid/create";
-import { clearBoard } from "./ManagingGrid/clear";
-import { undoStep } from "./ManagingGrid/undo";
+import { clearBoard } from "./button/clear";
+import { undoStep } from "./button/undo";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
 import * as Repo from "./Repository/TestingGrids/sudokuTestGrid";
 import * as TestGrids from "./Repository/TestingGrids/testSolving";
-import { solveGrid } from "./solveGrid/solve";
+import { solveGrid } from "./button/solve";
 // import { getCurrentGrid } from "./Getter/getGrid";
 
 // debugger; 
@@ -44,4 +44,4 @@ if(solveButton !== null || solveButton !== undefined) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(TestGrids.testNakedSingle);
+createBoard(Repo.testGrid);
