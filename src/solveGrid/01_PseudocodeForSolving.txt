@@ -31,3 +31,4 @@ IMPORTANT: every time a value gets added the sudoku rules need to be checked aga
 'easy Grids' --> can be solved with just naked Singles and hidden Singles!
 'medium Grids' --> not yet solvable (with only just hidden-and naked single)
 'hard Grids' --> not yet solvable (with only just hidden-and naked single)
+'hidden pair' --> 
