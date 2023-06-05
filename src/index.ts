@@ -6,6 +6,7 @@ import * as RandomGrid from "./Repository/gettingRandomGrid";
 import * as Repo from "./Repository/TestingGrids/sudokuTestGrid";
 import * as TestGrids from "./Repository/TestingGrids/testSolving";
 import { solveGrid } from "./button/solve";
+import { generateSudokuPDF } from "./button/downloadGrid";
 // import { getCurrentGrid } from "./Getter/getGrid";
 
 // debugger; 
@@ -39,9 +40,14 @@ if(solveButton !== null || solveButton !== undefined) {
     solveButton.addEventListener('click', solveGrid);
 } else alert(`we've got a problem with the undo button`);
 
+const downloadButton = document.getElementById(`download`);
+if(downloadButton !== null) {
+    downloadButton.addEventListener("click", generateSudokuPDF);
+} else alert(`we've got a problem with downloading the grid`);
+
 //-------------------------------------------executing------------------------------------------------------------------
 
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(RandomGrid.getRandomHardGrid());
+createBoard(RandomGrid.getRandomMediumGrid());

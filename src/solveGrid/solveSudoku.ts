@@ -1,8 +1,9 @@
 import { Grid } from "../Entities/Grid";
-import { applyHiddenSingle } from "./reducePossibilities/hiddenSingle";
+import { applyHiddenSingle } from "./findNumbers/hiddenSingle";
 import { applySudokuRules } from "./reducePossibilities/sudokuRules";
 import { applyPointingPairs } from "./reducePossibilities/pointingPair";
 import { applyNakedSingle } from "./findNumbers/nakedSingle";
+import { applyHiddenPair } from "./reducePossibilities/hiddenPair";
 
 
 
@@ -41,13 +42,23 @@ const solveSudoku = (grid: Grid): Grid => {
         } while (!grid.isFull() && hasMadeChanges);
 
         // apply hidden sinles technique
-            oldGrid = grid.copy();
-            // execute hiddenSingle Algorithm
-            grid = applyHiddenSingle(grid);
-            if (!grid.equals(oldGrid)) {
+        oldGrid = grid.copy();
+        // execute hiddenSingle Algorithm
+        grid = applyHiddenSingle(grid);
+        if (!grid.equals(oldGrid)) {
+            hasMadeChanges = true;
+        }
+        oldGrid = grid.copy();
+
+        if(hasMadeChanges === false) {
+            // algorithms to reduce possibilities (next to the fundamental sudoku rules)
+            grid = applyHiddenPair(grid);
+            if(!grid.equals(oldGrid)) {
                 hasMadeChanges = true;
             }
             oldGrid = grid.copy();
+        }
+
 
         // code for pointing pairs not tested yet!
         // before pointing pairs add hidden pairs, because more effective!!!
