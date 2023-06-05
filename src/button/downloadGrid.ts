@@ -11,6 +11,23 @@ const generateSudokuPDF = async () => {
 
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage(PageSizes.A4);
+    const { width, height} = page.getSize();
+
+    // set title
+    const titleText = 'Sudoku Spectrum';
+    page.drawText(titleText, {
+        x: 50,
+        y: height -50,
+        size: 30,
+    });
+
+    // set footnote
+    const footnoteText = 'from a website by Conrad Ferneding';
+    page.drawText(footnoteText, {
+        x: 50,
+        y: 30,
+        size: 10,
+    });
 
     // Set font and font size
     const font = await pdfDoc.embedFont("Helvetica");
