@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sudoku Spectrum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/bootstrapFramework.css"> 
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h2>Sudoku Spectrum</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Grid goes here -->
+                    <div id="grid"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Grid goes here -->
+                        <div id="grid"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- 1 to 9 buttons -->
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <button id="number1" type="button" class="btn btn-primary btn-lg btn-block">1</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number2" type="button" class="btn btn-primary btn-lg btn-block">2</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number3" type="button" class="btn btn-primary btn-lg btn-block">3</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <button id="number4" type="button" class="btn btn-primary btn-lg btn-block">4</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number5" type="button" class="btn btn-primary btn-lg btn-block">5</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number6" type="button" class="btn btn-primary btn-lg btn-block">6</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <button id="number7" type="button" class="btn btn-primary btn-lg btn-block">7</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number8" type="button" class="btn btn-primary btn-lg btn-block">8</button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="number9" type="button" class="btn btn-primary btn-lg btn-block">9</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button id="undo" type="button" class="btn btn-success btn-lg btn-block">undo (Ctrl+Z)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Explanation div goes here -->
+                <div id="explanation">
+                    <!-- Add your explanation content here -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button id="hideExplanation" type="button" class="btn btn-primary btn-lg">Hide Explanation</button>
+            </div>
+        </div>
+        <button id="check" type="button" class="btn btn-success btn-lg">check</button>
+        <button id="clear" type="button" class="btn btn-success btn-lg">clear</button>
+        <button id="solve" type="button" class="btn btn-success btn-lg">solve</button>
+        <button id="download" type="button" class="btn btn-success btn-lg">download</button>
+        <script src="../dist/bundle.js"></script>
+    </div>
+</body>
+
+</html>
