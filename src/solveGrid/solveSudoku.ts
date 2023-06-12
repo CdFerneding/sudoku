@@ -28,7 +28,6 @@ const solveSudoku = (grid: Grid): Grid => {
             oldGrid = grid.copy();
             // Execute sudokuRules to reduce possibilities
             grid = applySudokuRules(grid);
-            console.log(!grid.equals(oldGrid));
             if (!grid.equals(oldGrid)) {
                 hasMadeChanges = true;
             }
@@ -50,14 +49,14 @@ const solveSudoku = (grid: Grid): Grid => {
         }
         oldGrid = grid.copy();
 
-        if(hasMadeChanges === false) {
-            // algorithms to reduce possibilities (next to the fundamental sudoku rules)
-            grid = applyHiddenPair(grid);
-            if(!grid.equals(oldGrid)) {
-                hasMadeChanges = true;
-            }
-            oldGrid = grid.copy();
-        }
+        // if(hasMadeChanges === false) {
+        //     // algorithms to reduce possibilities (next to the fundamental sudoku rules)
+        //     grid = applyHiddenPair(grid);
+        //     if(!grid.equals(oldGrid)) {
+        //         hasMadeChanges = true;
+        //     }
+        //     oldGrid = grid.copy();
+        // }
 
 
         // code for pointing pairs not tested yet!
@@ -73,6 +72,7 @@ const solveSudoku = (grid: Grid): Grid => {
         iteration++;
     } while (!grid.isFull() && hasMadeChanges && iteration <= maxIterations);
 
+    console.log(grid);
     return grid;
 }
 

@@ -1,4 +1,5 @@
 import { createBoard } from "./ManagingGrid/create";
+import { testHiddenPair } from "./Repository/TestingGrids/testHiddenPair";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
 // import * as Repo from "./Repository/TestingGrids/sudokuTestGrid";
 // import { getCurrentGrid } from "./Getter/getGrid";
@@ -97,4 +98,4 @@ if (downloadButton !== null) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(RandomGrid.getRandomMediumGrid());
+createBoard(testHiddenPair);
