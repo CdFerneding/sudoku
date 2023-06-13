@@ -98,4 +98,4 @@ if (downloadButton !== null) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(testHiddenPair);
+createBoard(RandomGrid.getRandomHardGrid());
