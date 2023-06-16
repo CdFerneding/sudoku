@@ -1,4 +1,4 @@
-import { getCurrentGrid } from "../Getter/getGrid";
+import { getCurrentGrid } from "../ManagingGrid/getGrid";
 // import { findNumbers } from "./findMissingNumbers";
 import { clearBoard, deleteBoard } from "./clear";
 import { createBoard } from "../ManagingGrid/create";

@@ -1,5 +1,4 @@
 // maybe: getting a random grid from a DB later (my own or a public)
-// edit: rly necessary?
 const testGrid: number[][] = [
     [0, 5, 0, 0, 3, 0, 0, 0, 0],
     [0, 6, 9, 0, 0, 0, 5, 0, 1],

@@ -1,8 +1,6 @@
 import { createBoard } from "./ManagingGrid/create";
-import { testHiddenPair } from "./Repository/TestingGrids/testHiddenPair";
+import { testSudokuRules, testSudokuRulesData } from "./Repository/TestingGrids/testSudokuRules";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
-// import * as Repo from "./Repository/TestingGrids/sudokuTestGrid";
-// import { getCurrentGrid } from "./Getter/getGrid";
 
 // debugger; 
 // lint; zod; prettier libs 
@@ -98,4 +96,4 @@ if (downloadButton !== null) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(RandomGrid.getRandomHardGrid());
+createBoard(testSudokuRulesData);

@@ -1,4 +1,4 @@
-import { getCurrentGrid } from "../Getter/getGrid";
+import { getCurrentGrid } from "../ManagingGrid/getGrid";
 
 // -----------------------------------------------checking the Grid----------------------------------------------------------
 // functions for the check Button

@@ -58,8 +58,6 @@ const solveSudoku = (grid: Grid): Grid => {
         //     oldGrid = grid.copy();
         // }
 
-
-        // code for pointing pairs not tested yet!
         // before pointing pairs add hidden pairs, because more effective!!!
         // Apply pointing pairs technique
         // oldGrid = new Grid(grid.toNumberArray());
