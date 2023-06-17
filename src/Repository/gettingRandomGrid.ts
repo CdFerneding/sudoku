@@ -1,7 +1,7 @@
 import { errorMonitor } from "events";
-import * as EasyGrids from "./EasyGrids/gridsEasy";
-import * as HardGrids from "./HardGrids/gridsHard";
-import * as MediumGrids from "./MediumGrids/gridsMedium";
+import * as EasyGrids from "./Grids/gridsEasy";
+import * as HardGrids from "./Grids/gridsHard";
+import * as MediumGrids from "./Grids/gridsMedium";
 
 /**
  * note: using Bracket Notation to Access the Grid Repos respectively

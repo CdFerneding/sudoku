@@ -5,7 +5,7 @@ class Cell {
 	private value: number;
 	private possibleValues: number[];
 
-	constructor(row: number = null, column: number = null, possiblesValues: number[] = null, value: number = 0) {
+	constructor(row: number = null, column: number = null, possiblesValues: number[] = [], value: number = 0) {
 		this.row = row;
 		this.column = column;
 		// boxNumber = boxRow * 3 + boxColumn

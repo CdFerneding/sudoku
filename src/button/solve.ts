@@ -1,4 +1,4 @@
-import { getCurrentGrid } from "../Getter/getGrid";
+import { getCurrentGrid } from "../ManagingGrid/getGrid";
 // import { findNumbers } from "./findMissingNumbers";
 import { clearBoard, deleteBoard } from "./clear";
 import { createBoard } from "../ManagingGrid/create";
@@ -11,6 +11,7 @@ const solveGrid = () => {
     const grid: Grid = new Grid(currentGrid);
     const resultingGrid: Grid = solveSudoku(grid);
     const resultingGridToNumArr = resultingGrid.toNumberArray();
+    console.log(resultingGridToNumArr);
     deleteBoard();
     createBoard(resultingGridToNumArr);
 }
