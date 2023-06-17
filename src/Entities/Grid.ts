@@ -69,44 +69,82 @@ class Grid {
         return numArray;
     }
 
+    //----------------------------checking start----------------------------
     public isFull(): boolean {
         return this.cells.every((cell) => cell.getValue() !== 0);
     }
 
-    public toString(): string {
-        let string: string = "";
-      
-        // Add horizontal dividers between boxes
-        const boxDivider = "+---+---+---+\n";
-      
-        for (let row = 0; row < 9; row++) {
-          if (row % 3 === 0 && row !== 0) {
-            // Add horizontal dividers between boxes
-            string += boxDivider;
-          }
-      
-          for (let col = 0; col < 9; col++) {
-            if (col % 3 === 0 && col !== 0) {
-              // Add vertical dividers between boxes
-              string += "|";
+    public checkRowsAndColumns(): boolean {
+        const grid: number[][] = this.toNumberArray();
+        let counterRows = new Array(9).fill(0);
+        let counterColumns = new Array(9).fill(0);
+        for (let i = 0; i < 9; i++) {
+            counterRows.fill(0);
+            counterColumns.fill(0);
+            for (let j = 0; j < 9; j++) {
+                const numRow = grid[i][j];
+                const numCol = grid[j][i];
+                counterRows[numRow - 1]++;
+                counterColumns[numCol - 1]++;
+                if (counterRows[numRow - 1] != 1) return false;
+                if (counterColumns[numCol - 1] != 1) return false;
             }
-      
-            const cell = this.getCell(row, col);
-            const value = cell.getValue();
-      
-            if (value === 0) {
-              string += " "; // Display empty cells as spaces
-            } else {
-              string += value.toString();
-            }
-          }
-      
-          string += "\n";
         }
-      
-        return string;
-      }
-      
+        return true;
+    }
+
+    public checkBoxes = (): boolean => {
+        const grid: Grid = new Grid([], this.cells);
+        const valuesOfBoxes: number[][] = [[],[],[],[],[],[],[],[],[]];
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                const boxNumber: number = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+                valuesOfBoxes[boxNumber].push(grid.getCell(r,c).getValue());
+            }
+        }
+        for (let box = 0; box < 9; box++) {
+            const sum = valuesOfBoxes[box].reduce((acc, curr) => acc + curr, 0);
+            if(sum !== 45) return false;
+            else return true;
+        }
+    }
+
+    //----------------------------checking end------------------------------
+
+    // public toString(): string {
+    //     let string: string = "";
+
+    //     // Add horizontal dividers between boxes
+    //     const boxDivider = "+---+---+---+\n";
+
+    //     for (let row = 0; row < 9; row++) {
+    //         if (row % 3 === 0 && row !== 0) {
+    //             // Add horizontal dividers between boxes
+    //             string += boxDivider;
+    //         }
+
+    //         for (let col = 0; col < 9; col++) {
+    //             if (col % 3 === 0 && col !== 0) {
+    //                 // Add vertical dividers between boxes
+    //                 string += "|";
+    //             }
+
+    //             const cell = this.getCell(row, col);
+    //             const value = cell.getValue();
+
+    //             if (value === 0) {
+    //                 string += " "; // Display empty cells as spaces
+    //             } else {
+    //                 string += value.toString();
+    //             }
+    //         }
+
+    //         string += "\n";
+    //     }
+
+    //     return string;
+    // }
+
 
 }
 

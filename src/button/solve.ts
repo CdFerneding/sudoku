@@ -11,6 +11,7 @@ const solveGrid = () => {
     const grid: Grid = new Grid(currentGrid);
     const resultingGrid: Grid = solveSudoku(grid);
     const resultingGridToNumArr = resultingGrid.toNumberArray();
+    console.log(resultingGridToNumArr);
     deleteBoard();
     createBoard(resultingGridToNumArr);
 }

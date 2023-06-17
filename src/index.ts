@@ -1,4 +1,5 @@
 import { createBoard } from "./ManagingGrid/create";
+import { easyGrid1 } from "./Repository/Grids/gridsEasy";
 import { testSudokuRules, testSudokuRulesData } from "./Repository/TestingGrids/testSudokuRules";
 import * as RandomGrid from "./Repository/gettingRandomGrid";
 
@@ -96,4 +97,4 @@ if (downloadButton !== null) {
 // createBoard(RandomGrid.getRandomHardGrid());
 // createBoard(RandomGrid.getRandomMediumGrid());
 // createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(testSudokuRulesData);
+createBoard(easyGrid1);
