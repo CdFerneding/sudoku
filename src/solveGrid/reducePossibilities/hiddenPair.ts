@@ -2,45 +2,94 @@ import { Grid } from "../../Entities/Grid";
 import { Cell } from "../../Entities/Cell";
 
 const applyHiddenPair = (grid: Grid): Grid => {
-    for (let row = 0; row < 9; row++) {
-        for (let column = 0; column < 9; column++) {
-            const cell: Cell = grid.getCell(row, column);
-            if (!cell.isEmpty) continue;
 
-            let hiddenSingleFound = false;
+    // a unit are 9 cells (row, column or box)
+    const applyHiddenPairToUnit = (unit: Cell[]): void => {
+        let candidatesCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-            // Check for hidden singles in the box
-            const startRow = Math.floor(row / 3) * 3;
-            const startCol = Math.floor(column / 3) * 3;
-            let possibleValuesOfCurrentBox = [];
-            for (let r = startRow; r < startRow + 3; r++) {
-                for (let c = startCol; c < startCol + 3; c++) {
+        for (const cell of unit) {
+            if (cell.isEmpty()) {
+                for (const value of cell.getPossibleValues()) {
+                    candidatesCount[value - 1]++;
+                }
+            }
+        }
 
-                    const boxCell = grid.getCell(r, c);
-                    if (!(r === row && c === column) && boxCell.isEmpty()) {
-                        boxCell.getPossibleValues().forEach((value) => {
-                            if (!possibleValuesOfCurrentBox.includes(value)) {
-                                possibleValuesOfCurrentBox.push(value);
+        const hiddenPairs = [];
+        candidatesCount.forEach((count, valueIndex) => {
+            if (count === 2) {
+                hiddenPairs.push(valueIndex + 1);
+            }
+        });
+
+        if (hiddenPairs.length >= 2) {
+            for (const pair1 of hiddenPairs) {
+                for (const pair2 of hiddenPairs) {
+                    if (pair1 !== pair2) {
+                        const commonCells = [];
+
+                        // Find the cells common to pair1 and pair2 in the unit
+                        for (const cell of unit) {
+                            if (
+                                cell.isEmpty() &&
+                                cell.getPossibleValues().includes(pair1) &&
+                                cell.getPossibleValues().includes(pair2)
+                            ) {
+                                commonCells.push(cell);
                             }
-                        });
+                        }
+
+                        if (commonCells.length === 2) {
+                            // Remove pair1 and pair2 as candidates from other cells in the unit
+                            for (const cell of unit) {
+                                if (
+                                    !commonCells.includes(cell) &&
+                                    cell.getPossibleValues().includes(pair1) &&
+                                    cell.getPossibleValues().includes(pair2)
+                                ) {
+                                    cell.removePossibleValue(pair1);
+                                    cell.removePossibleValue(pair2);
+                                }
+                            }
+                            for(const cell of commonCells) {
+                                // Remove other values from the cells part of the hidden pair
+                                for (const value of cell.getPossibleValues()) {
+                                    if (value !== pair1 && value !== pair2) {
+                                        cell.removePossibleValue(value);
+                                    }
+                                }
+                            }
+                        }
+
+                        // other hidden mulitiple go here...
                     }
                 }
             }
-            cell.getPossibleValues().forEach((value) => {
-                if (!possibleValuesOfCurrentBox.includes(value)) {
-                    cell.setValue(value);
-                    cell.setPossibleValues([]);
-                    hiddenSingleFound = true;
-                }
-            });
-            if (hiddenSingleFound) {
-                return grid;
-            }
+        }
+    };
 
+    // Check rows for hidden pairs
+    for (let row = 0; row < 9; row++) {
+        const rowCells = grid.getRow(row);
+        applyHiddenPairToUnit(rowCells);
+    }
+
+    // Check columns for hidden pairs
+    for (let col = 0; col < 9; col++) {
+        const colCells = grid.getColumn(col);
+        applyHiddenPairToUnit(colCells);
+    }
+
+    // Check boxes for hidden pairs
+    for (let boxRow = 0; boxRow < 3; boxRow++) {
+        for (let boxCol = 0; boxCol < 3; boxCol++) {
+            let boxNumber = Math.floor(boxRow / 3) * 3 + Math.floor(boxCol / 3);
+            const boxCells = grid.getBox(boxNumber);
+            applyHiddenPairToUnit(boxCells);
         }
     }
 
     return grid;
-}
+};
 
 export { applyHiddenPair };

@@ -5,7 +5,7 @@ Steps for solving a sudoku grid:
     2. apply the sudoku rules to reduces possible Values for every free Cell in the grid
     3. apply naked Singles to identify cells which have only one possible value left
         4. If (in 3) a cell has been found insert the value and go back to 2
-        5. If (in 3) no cell has been apply hidden Single algorithm
+        5. If (in 3) no cell has been found apply hidden Single algorithm
             6. If (in 5) a cell has been found insert the value and go back to 2
             7. If (in 5) no cell has been found apply ....
                 etc. :  other algorithms in the same fashion as in 3/5 (and go back to step 2 afterwards)
