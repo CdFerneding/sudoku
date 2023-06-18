@@ -1,7 +1,6 @@
 import { Grid } from "../Entities/Grid";
 import { applyHiddenSingle } from "./findNumbers/hiddenSingle";
 import { applySudokuRules } from "./reducePossibilities/sudokuRules";
-import { applyPointingPairs } from "./reducePossibilities/pointingPair";
 import { applyNakedSingle } from "./findNumbers/nakedSingle";
 import { applyHiddenPair } from "./reducePossibilities/hiddenPair";
 
@@ -13,7 +12,6 @@ import { applyHiddenPair } from "./reducePossibilities/hiddenPair";
  * @returns The solved Sudoku grid
  */
 const solveSudoku = (grid: Grid): Grid => {
-    console.log(`inside 'solveSudoku' method.`);
     let hasMadeChanges = false;
     let hiddenSingleMadeChanges = false;
     const maxIterations = 81;
@@ -64,7 +62,6 @@ const solveSudoku = (grid: Grid): Grid => {
         iteration++;
     } while (!grid.isFull() && iteration <= maxIterations);
 
-    console.log(grid);
     return grid;
 }
 

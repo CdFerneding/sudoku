@@ -59,10 +59,6 @@ class Cell {
 			arraysEqual(this.possibleValues, otherCell.getPossibleValues())
 		);
 	}
-
-	// public includesPossibility(value: number): boolean {
-	// 	return this.possibleValues.includes(value);
-	// }
 }
 
 // Helper function to compare arrays for equality

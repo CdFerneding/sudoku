@@ -1,15 +1,14 @@
 import { Grid } from "../src/Entities/Grid";
 import { testHiddenPair, testHiddenPairCorrectResult } from "../src/Repository/TestingGrids/testHiddenPair";
-import { applyHiddenPair } from "../src/solveGrid/reducePossibilities/hiddenPair";
+import { solveSudoku } from "../src/solveGrid/solveSudoku";
 
 describe("hidden Pair", () => {
 
-    test("should return the correctly filled in number deduced by hidden pair", () => {
+    test("should return true when the correct number is deduced by hidden pair", () => {
         const grid: Grid = new Grid(testHiddenPair);
-        const expectedGrid: Grid = new Grid(testHiddenPairCorrectResult);
 
-        const result: Grid = applyHiddenPair(grid);
+        let result = solveSudoku(grid).toNumberArray();
 
-        expect(result.equals(expectedGrid));
+        expect(result).toEqual(testHiddenPairCorrectResult);
     });
 });
