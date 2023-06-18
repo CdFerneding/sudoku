@@ -54,6 +54,40 @@ class Grid {
         }
     }
 
+    /**
+     * return all 9 cells of a specific row of a grid
+     * @param row 
+     */
+    public getRow(rowIndex: number): Cell[] {
+        let cellsOfRow: Cell[] = [];
+        this.cells.forEach((cell) => {
+            if(cell.getRow() === rowIndex){
+                cellsOfRow.push(cell);
+            }
+        });
+        return cellsOfRow;
+    }
+
+    public getColumn(columnIndex: number): Cell[] {
+        let cellsOfColumn: Cell[] = [];
+        this.cells.forEach((cell) => {
+            if(cell.getRow() === columnIndex){
+                cellsOfColumn.push(cell);
+            }
+        });
+        return cellsOfColumn;
+    }
+
+    public getBox(boxIndex: number): Cell[] {
+        let cellsOfBox: Cell[] = [];
+        this.cells.forEach((cell) => {
+            if(cell.getBox() === boxIndex){
+                cellsOfBox.push(cell);
+            }
+        });
+        return cellsOfBox;
+    }
+
     public toNumberArray(): number[][] {
         const numArray: number[][] = [];
 
@@ -93,7 +127,7 @@ class Grid {
         return true;
     }
 
-    public checkBoxes = (): boolean => {
+    public checkBoxes(): boolean {
         const grid: Grid = new Grid([], this.cells);
         const valuesOfBoxes: number[][] = [[],[],[],[],[],[],[],[],[]];
         for (let r = 0; r < 9; r++) {

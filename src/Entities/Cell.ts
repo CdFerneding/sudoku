@@ -8,7 +8,7 @@ class Cell {
 	constructor(row: number = null, column: number = null, possiblesValues: number[] = [], value: number = 0) {
 		this.row = row;
 		this.column = column;
-		// boxNumber = boxRow * 3 + boxColumn
+		// boxNumber = boxRow + boxColumn/3
 		if (row === null || column === null) this.box = null;
 		else this.box = Math.floor(this.row / 3) * 3 + Math.floor(this.column / 3);
 		this.value = value;

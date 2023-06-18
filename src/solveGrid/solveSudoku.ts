@@ -15,60 +15,54 @@ import { applyHiddenPair } from "./reducePossibilities/hiddenPair";
 const solveSudoku = (grid: Grid): Grid => {
     console.log(`inside 'solveSudoku' method.`);
     let hasMadeChanges = false;
-    const maxIterations = 10;
+    let hiddenSingleMadeChanges = false;
+    const maxIterations = 81;
     let iteration = 0;
+    let oldGrid;
 
+    // apply Sudoku rules
     do {
         hasMadeChanges = false;
-        let oldGrid;
-
-        // apply Sudoku rules
-        do {
-            hasMadeChanges = false;
-            oldGrid = grid.copy();
-            // Execute sudokuRules to reduce possibilities
-            grid = applySudokuRules(grid);
-            if (!grid.equals(oldGrid)) {
-                hasMadeChanges = true;
-            }
-
-            // Check for naked singles
-            oldGrid = grid.copy();
-            grid = applyNakedSingle(grid);
-            if (!grid.equals(oldGrid)) {
-                hasMadeChanges = true;
-            }
-        } while (!grid.isFull() && hasMadeChanges);
-
-        // apply hidden sinles technique
         oldGrid = grid.copy();
-        // execute hiddenSingle Algorithm
-        grid = applyHiddenSingle(grid);
+
+        // keeping track of strategies that reduce possibilities (not being sudoku rules)
+        if (hiddenSingleMadeChanges === true) {
+            hasMadeChanges = true;
+            hiddenSingleMadeChanges = false;
+        }
+
+        // Execute sudokuRules to reduce possibilities
+        grid = applySudokuRules(grid);
         if (!grid.equals(oldGrid)) {
             hasMadeChanges = true;
         }
+
+        // Check for naked singles
         oldGrid = grid.copy();
+        grid = applyNakedSingle(grid);
+        if (!grid.equals(oldGrid)) {
+            continue;
+        }
 
-        // if(hasMadeChanges === false) {
-        //     // algorithms to reduce possibilities (next to the fundamental sudoku rules)
-        //     grid = applyHiddenPair(grid);
-        //     if(!grid.equals(oldGrid)) {
-        //         hasMadeChanges = true;
-        //     }
-        //     oldGrid = grid.copy();
-        // }
+        // Check for hidden singles
+        if (hasMadeChanges) {
+            oldGrid = grid.copy();
+            grid = applyHiddenSingle(grid);
+            if (!grid.equals(oldGrid)) {
+                continue; // Go back to the beginning of the loop
+            }
+        }
 
-        // before pointing pairs add hidden pairs, because more effective!!!
-        // Apply pointing pairs technique
-        // oldGrid = new Grid(grid.toNumberArray());
-        // grid = applyPointingPairs(grid);
-        // if (grid !== updatedGrid) {
-        //     oldGrid = grid;
-        //     hasMadeChanges = true;
-        // }
+        // Check for hidden pairs
+        oldGrid = grid.copy();
+        grid = applyHiddenPair(grid);
+        if (!grid.equals(oldGrid)) {
+            hiddenSingleMadeChanges = true;
+            continue; // Go back to the beginning of the loop
+        }
 
         iteration++;
-    } while (!grid.isFull() && hasMadeChanges && iteration <= maxIterations);
+    } while (!grid.isFull() && iteration <= maxIterations);
 
     console.log(grid);
     return grid;
