@@ -1,5 +1,5 @@
 import { createBoard } from "./ManagingGrid/create";
-import { getRandomEasyGrid } from "./Repository/gettingRandomGrid";
+import * as RandomGrid from "./Repository/gettingRandomGrid";
 
 // debugger; 
 // lint; zod; prettier libs 
@@ -9,22 +9,63 @@ import { getRandomEasyGrid } from "./Repository/gettingRandomGrid";
 // therefore improving the initial loading time
 // however prolonging the individuall loading time
 
+// difficulty buttons
+const difficultyEasyButton = document.getElementById('difficulty-easy');
+const difficultyMediumButton = document.getElementById('difficulty-medium');
+const difficultyHardButton = document.getElementById('difficulty-hard');
+difficultyEasyButton.addEventListener('click', createEasyGrid);
+difficultyMediumButton.addEventListener('click', createMediumGrid);
+difficultyHardButton.addEventListener('click', createHardGrid);
+
+// display the current difficulty
+const currentDifficulty = document.getElementById('current-difficulty');
+
+// set visibilities (client side)
 const explanationArea = document.getElementById('explanation');
+const gamingArea = document.getElementById('gaming');
+const difficultyArea = document.getElementById('choose-difficulty');
+
+difficultyArea.style.display = 'block';
 explanationArea.style.display = 'block';
-const hideButton = document.getElementById('hide');
-hideButton.addEventListener('click', hideExplanation);
+gamingArea.style.display = 'none';
+
+// hide Explanation button
+const hideExplanationButton = document.getElementById('hide-explanation');
+hideExplanationButton.addEventListener('click', hideExplanation);
 
 function hideExplanation() {
     if (explanationArea.style.display === 'block') {
         explanationArea.style.display = 'none';
-        hideButton.innerHTML = 'show explanation';
+        hideExplanationButton.innerHTML = 'show explanation';
     }
     else {
         explanationArea.style.display = 'block';
-        hideButton.innerHTML = 'hide explanation';
+        hideExplanationButton.innerHTML = 'hide explanation';
     }
 }
 
+// difficulty event funcitons
+
+function createEasyGrid() {
+    currentDifficulty.innerText = 'Easy Grid'
+    // difficultyArea.style.display = 'none';
+    gamingArea.style.display = 'block';
+    createBoard(RandomGrid.getRandomEasyGrid());
+}
+
+function createMediumGrid() {
+    currentDifficulty.innerText = 'Medium Grid'
+    gamingArea.style.display = 'block';
+    createBoard(RandomGrid.getRandomMediumGrid());
+}
+
+function createHardGrid() {
+    currentDifficulty.innerText = 'Hard Grid'
+    gamingArea.style.display = 'block';
+    createBoard(RandomGrid.getRandomHardGrid());
+}
+
+// gaming buttons (at the beginning not displayed: gamingArea)
 const clearButton = document.getElementById(`clear`);
 if (clearButton !== null) {
     clearButton.addEventListener(`click`, async () => {
@@ -105,10 +146,3 @@ if (downloadButton !== null) {
 } else {
     alert("We've got a problem with downloading the grid");
 }
-
-//-------------------------------------------executing------------------------------------------------------------------
-
-// createBoard(RandomGrid.getRandomHardGrid());
-// createBoard(RandomGrid.getRandomMediumGrid());
-// createBoard(RandomGrid.getRandomEasyGrid());
-createBoard(getRandomEasyGrid());

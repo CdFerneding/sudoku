@@ -16,20 +16,38 @@
         <h1 style="margin-bottom: 50px; font-weight: bold;">Sudoku Spectrum</h1>
         <div id="explanation" style="font-size: medium;">
             <span>
-                <b>sudoku rules:</b> in every row, column need the number 1-9 appear exactly once. There is only one right solution to a sudoku.<br>
-                <b>buttons:</b>
+                <b>sudoku rules:</b> in every row, column need the number 1-9 appear exactly once. There is only one
+                right solution to a sudoku.<br>
+                <b>difficulty buttons:</b>
                 <ul>
                     <li>
-                        undo: remove the last number you have written inside a cell (solving the grid can not be undone, only reloading will restart the game).
+                        Easy: creates an easy to solve sudoku grid. The solve button will be able to completely solve the displayed grid.
                     </li>
                     <li>
-                        check: when you have completely filled the grid with numbers you can use this button to check the grid.
+                        Medium: creates a hard to solve sudoku grid. The solve button will only be able to partially solve the displayed grid.
                     </li>
                     <li>
-                        clear: clear the currently displayed grid to an empty grid. You can then write your own sudoku puzzles for expample. 
+                        Medium: creates a very hard to solve sudoku grid. The solve button will only be able to find a few numbers.
+                    </li>
+                </ul>
+                <b>sudoku buttons:</b>
+                <ul>
+                    <li>
+                        undo: remove the last number you have written inside a cell (solving the grid can not be undone,
+                        only reloading will restart the game).
                     </li>
                     <li>
-                        solve: clicking this button will trigger an algorithm, wich will try and solve the currently displayed sudoku. (hint: Sadly, the algorithm is not yet powerful enough to solve every medium and hard sudoku)
+                        check: when you have completely filled the grid with numbers you can use this button to check
+                        the grid.
+                    </li>
+                    <li>
+                        clear: clear the currently displayed grid to an empty grid. You can then write your own sudoku
+                        puzzles for expample.
+                    </li>
+                    <li>
+                        solve: clicking this button will trigger an algorithm, wich will try and solve the currently
+                        displayed sudoku. <br>hint: The algorithm is not yet powerful enough to solve every medium
+                        and hard sudoku!
                     </li>
                     <li>
                         download: download the currently displayed sudoku grid
@@ -37,15 +55,28 @@
                 </ul>
             </span>
         </div>
-        <button id="hide" type="button" class="btn btn-info">hide explanation</button>
-        <div id="grid"></div>
-        <div id="buttons">
-            <button id="undo" type="button" class="btn btn-success btn-lg">undo</button>
-            <button id="check" type="button" class="btn btn-success btn-lg">check</button>
-            <button id="clear" type="button" class="btn btn-success btn-lg">clear</button>
-            <button id="solve" type="button" class="btn btn-success btn-lg">solve</button>
-            <button id="download" type="button" class="btn btn-success btn-lg">download</button>
-            <script src="../dist/bundle.js"></script>
+        <button id="hide-explanation" type="button" class="btn btn-secondary" style="margin-bottom: 20px;">hide explanation</button>
+
+        <!-- choose difficulty -->
+        <div id="choose-difficulty" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 20px;">Choose Difficulty!</h3>
+            <button id="difficulty-easy" type="button" class="btn btn-secondary">Easy</button>
+            <button id="difficulty-medium" type="button" class="btn btn-secondary">Medium</button>
+            <button id="difficulty-hard" type="button" class="btn btn-secondary">Hard</button>
+        </div>
+
+        <div id="current-difficulty" style="font-size: large; font-weight: bold;"></div>
+
+        <div id="gaming">
+            <div id="grid"></div>
+            <div id="buttons" style="margin-bottom: 20px;">
+                <button id="undo" type="button" class="btn btn-success btn-lg">undo</button>
+                <button id="check" type="button" class="btn btn-success btn-lg">check</button>
+                <button id="clear" type="button" class="btn btn-success btn-lg">clear</button>
+                <button id="solve" type="button" class="btn btn-success btn-lg">solve</button>
+                <button id="download" type="button" class="btn btn-success btn-lg">download</button>
+                <script src="../dist/bundle.js"></script>
+            </div>
         </div>
     </div>
 </body>

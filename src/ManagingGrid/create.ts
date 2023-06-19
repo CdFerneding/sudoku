@@ -1,9 +1,13 @@
+import { deleteBoard } from "../button/clear";
 import { undoStack } from "../button/undo";
 
 const createBoard = (withGrid: number[][]): void => {
+    // delete all Children of the grid div if it already has any
+    deleteBoard();
+    
     const grid = document.getElementById("grid");
-    if (grid === null || grid === undefined) return;
 
+    // build a sudoku grid: 9 row div's with 9 input cell's respectfully
     withGrid.forEach((elem: number[], rowIndex: number) => {
         const row = document.createElement('div');
         row.classList.add('row');
@@ -25,11 +29,11 @@ const createBoard = (withGrid: number[][]): void => {
                 cell.classList.add('rightline');
             }
             if (value === null || value === 0) {
-                cell.setAttribute("style", "font-weight: 100;")
+                cell.setAttribute("style", "font-weight: light; font-size: xx-large");
                 cell.addEventListener("input", handleInputChange);
             } else {
                 cell.value = value.toString();
-                cell.setAttribute("style", "font-weight: bold;")
+                cell.setAttribute("style", "font-weight: bold; font-size: xx-large;");
                 cell.readOnly = true;
             }
 
