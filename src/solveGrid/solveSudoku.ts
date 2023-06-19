@@ -14,7 +14,7 @@ import { applyHiddenPair } from "./reducePossibilities/hiddenPair";
 const solveSudoku = (grid: Grid): Grid => {
     let hasMadeChanges = false;
     let hiddenSingleMadeChanges = false;
-    const maxIterations = 81;
+    const maxIterations = 70;
     let iteration = 0;
     let oldGrid;
 
