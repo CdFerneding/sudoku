@@ -101,7 +101,7 @@
         "wildcard": "^2.0.0"
     },
     "scripts": {
-        "test": "jest --watch a",
+        "test": "jest",
         "run": "webpack watch"
     },
     "keywords": [],

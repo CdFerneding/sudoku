@@ -1,27 +1,53 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Sudoku Spectrum</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/bootstrapFramework.css">
-    </head>
-    
-    <body>
-        <div class="jumbotron text-center">
-            <h2>Sudoku Spectrum</h2>
-            <div id="grid"></div>
-            <button id="undo" type="button" class="btn btn-success btn-lg">undo (Ctrl+Z)</button>
+<html lang="en">
+
+<head>
+    <title>Sudoku Spectrum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 50px; font-weight: bold;">Sudoku Spectrum</h1>
+        <div id="explanation" style="font-size: medium;">
+            <span>
+                <b>sudoku rules:</b> in every row, column need the number 1-9 appear exactly once. There is only one right solution to a sudoku.<br>
+                <b>buttons:</b>
+                <ul>
+                    <li>
+                        undo: remove the last number you have written inside a cell (solving the grid can not be undone, only reloading will restart the game).
+                    </li>
+                    <li>
+                        check: when you have completely filled the grid with numbers you can use this button to check the grid.
+                    </li>
+                    <li>
+                        clear: clear the currently displayed grid to an empty grid. You can then write your own sudoku puzzles for expample. 
+                    </li>
+                    <li>
+                        solve: clicking this button will trigger an algorithm, wich will try and solve the currently displayed sudoku. (hint: Sadly, the algorithm is not yet powerful enough to solve every medium and hard sudoku)
+                    </li>
+                    <li>
+                        download: download the currently displayed sudoku grid
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <button id="hide" type="button" class="btn btn-info">hide explanation</button>
+        <div id="grid"></div>
+        <div id="buttons">
+            <button id="undo" type="button" class="btn btn-success btn-lg">undo</button>
             <button id="check" type="button" class="btn btn-success btn-lg">check</button>
             <button id="clear" type="button" class="btn btn-success btn-lg">clear</button>
             <button id="solve" type="button" class="btn btn-success btn-lg">solve</button>
             <button id="download" type="button" class="btn btn-success btn-lg">download</button>
-            <script src = "../dist/bundle.js"></script>
+            <script src="../dist/bundle.js"></script>
         </div>
-    </body>
+    </div>
+</body>
 
 </html>

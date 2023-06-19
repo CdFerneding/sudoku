@@ -9,9 +9,24 @@ import { getRandomEasyGrid } from "./Repository/gettingRandomGrid";
 // therefore improving the initial loading time
 // however prolonging the individuall loading time
 
+const explanationArea = document.getElementById('explanation');
+explanationArea.style.display = 'block';
+const hideButton = document.getElementById('hide');
+hideButton.addEventListener('click', hideExplanation);
+
+function hideExplanation() {
+    if (explanationArea.style.display === 'block') {
+        explanationArea.style.display = 'none';
+        hideButton.innerHTML = 'show explanation';
+    }
+    else {
+        explanationArea.style.display = 'block';
+        hideButton.innerHTML = 'hide explanation';
+    }
+}
 
 const clearButton = document.getElementById(`clear`);
-if(clearButton !== null) {
+if (clearButton !== null) {
     clearButton.addEventListener(`click`, async () => {
         try {
             const { clearBoard } = await import("./button/clear");
@@ -24,20 +39,21 @@ if(clearButton !== null) {
 else alert(`we've got a problem with the clear button :/`);
 
 const checkerButton = document.getElementById("check");
-if(checkerButton !== null) {checkerButton.addEventListener("click", async () => {
-    try {
-        const { checkGrid } = await import("./button/checkingGrid");
-        checkGrid();
-    } catch (error) {
-        console.log("Error while loading checkGrid:", error);
-    }
-});
-}else alert(`we've got a problem with the check button`);
+if (checkerButton !== null) {
+    checkerButton.addEventListener("click", async () => {
+        try {
+            const { checkGrid } = await import("./button/checkingGrid");
+            checkGrid();
+        } catch (error) {
+            console.log("Error while loading checkGrid:", error);
+        }
+    });
+} else alert(`we've got a problem with the check button`);
 
-window.addEventListener("keydown", function(e) {
+window.addEventListener("keydown", function (e) {
     if (e.key === "z" && e.ctrlKey === true) {
         e.preventDefault();
-        // Execute Undo function when strg+u is pressed
+        // Execute Undo function when strg+z is pressed
         async () => {
             try {
                 const { undoStep } = await import("./button/undo");
@@ -51,7 +67,7 @@ window.addEventListener("keydown", function(e) {
 
 // undo Button for taking a step back (when the player has inputted the number himself)
 const undoButton = document.getElementById(`undo`);
-if(undoButton !== null) {
+if (undoButton !== null) {
     undoButton.addEventListener("click", async () => {
         try {
             const { undoStep } = await import("./button/undo");
@@ -59,12 +75,12 @@ if(undoButton !== null) {
         } catch (error) {
             console.log("Error while loading undoStep:", error);
         }
-    });     
+    });
 } else alert(`we've got a problem with the undo button`);
 
 // solve Button for solving the currently displayed grid 
 const solveButton = document.getElementById('solve');
-if(solveButton !== null || solveButton !== undefined) {
+if (solveButton !== null || solveButton !== undefined) {
     solveButton.addEventListener('click', async () => {
         try {
             const { solveGrid } = await import("./button/solve");
@@ -79,16 +95,16 @@ if(solveButton !== null || solveButton !== undefined) {
 const downloadButton = document.getElementById(`download`);
 if (downloadButton !== null) {
     downloadButton.addEventListener("click", async () => {
-      try {
-        const { generateSudokuPDF } = await import("./button/downloadGrid");
-        generateSudokuPDF();
-      } catch (error) {
-        console.log("Error loading generateSudokuPDF:", error);
-      }
+        try {
+            const { generateSudokuPDF } = await import("./button/downloadGrid");
+            generateSudokuPDF();
+        } catch (error) {
+            console.log("Error loading generateSudokuPDF:", error);
+        }
     });
-  } else {
+} else {
     alert("We've got a problem with downloading the grid");
-  }
+}
 
 //-------------------------------------------executing------------------------------------------------------------------
 

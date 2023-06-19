@@ -3,24 +3,46 @@
 }
 
 body {
+    background-color: #ddd;
     width: 100vw;
     height: 90vh;
+    /* enable vertical scrolling */
+    overflow-y: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 #grid {
+    transform: scale(0.7);
+    aspect-ratio: 1/1;
+    padding: 0%;
+    margin: auto;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* #grid {
     position: relative;
     max-height: 900px;
     width: 60%;
     aspect-ratio: 1/1;
-    /*ensures that the grid is a square*/
     flex-wrap: wrap;
-    /*border: solid 6px black;*/
     transform: scale(0.7);
     float: left;
     padding: 50px;
-}
+} */
 
-.button {
+/* .button {
     display: block;
     border: none;
     background-color: #04AA6D;
@@ -28,9 +50,8 @@ body {
     padding: 14px 28px;
     font-size: 30px;
     cursor: pointer;
-    text-align: center;
-    /* float: right; */ 
-}
+    text-align: center; 
+} */
 
 .row {
     width: 100%;
@@ -45,12 +66,12 @@ body {
     background-color: white;
     border: solid 1px black;
     text-align: center;
-    display: flex;
     /* Display the cell as a flex container */
-    justify-content: center;
+    display: flex;
     /* Horizontally center the content */
-    align-items: center;
+    justify-content: center;
     /* Vertically center the content */
+    align-items: center;
 
     /* number displaying */
     font-size: 3.5vw;
