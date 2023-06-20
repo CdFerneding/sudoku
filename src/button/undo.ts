@@ -18,6 +18,9 @@ abstract class Collection<T> {
     size(): number {
         return this.storage.length;
     }
+    setStorage(storage) {
+        this.storage = storage;
+    }
     abstract isFull(): boolean;
 }
 
@@ -58,29 +61,30 @@ class StackCollection<T> extends Collection<T> implements IStack<T> {
 const undoStack = new StackCollection<number[]>();
 
 const undoStep = (): string => {
-    if (undoStack.peek() === null || undoStack.peek() === undefined) {
-        const str = `undoStack is null or undefined`;
-        alert(str);
-        return str;
-    } else if (undoStack.size() === 0) {
-        const str = `the undoStack is not yet built`;
-        alert(str);
-        return str;
+    if (undoStack.size() === 0) {
+      const str = `the undoStack is not yet built`;
+      alert(str);
+      return str;
     }
+  
     const arr = undoStack.pop();
+  
     if (arr.length !== 3) {
-        const str = `something went wrong with fetching an undoStack-element`;
-        alert(str);
-        return str;
+      const str = `something went wrong with fetching an undoStack-element`;
+      alert(str);
+      return str;
     }
+  
     const cell = document.querySelector(`[row="${arr[0]}"][column="${arr[1]}"]`) as HTMLInputElement;
-    if(arr[2] !== 0) {
-        cell.value = arr[2].toString(); 
+    if (arr[2] !== 0) {
+      cell.value = arr[2].toString();
     } else {
-        cell.value = "";
+      cell.value = "";
     }
+  
     console.log(`undid row ${arr[0] + 1} column ${arr[1] + 1} from ${cell.value} to ${arr[2]}`);
     return `good work mate`;
-};
+  };
+  
 
 export { undoStack, undoStep }

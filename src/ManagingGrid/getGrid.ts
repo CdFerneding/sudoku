@@ -17,3 +17,4 @@ const getCurrentGrid = (): number[][] => {
   }
   
   export { getCurrentGrid }
+  
