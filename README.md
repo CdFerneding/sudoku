@@ -4,5 +4,5 @@ You are welcome to retrieve inspiration from this fine code. Please refrain from
 
 # setup
 run ```npm i``` to install any dependencies needed for the project (if the node_modules is not alredy existing)  
-to the application you need to open the html file: ```right click on /html/index.html ---> open with live server```  
+to run the application you need to open the html file: ```right click on /html/index.html ---> open with live server```  
 run ```npm run test``` to run through all existing tests  
