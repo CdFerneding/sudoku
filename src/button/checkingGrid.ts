@@ -29,6 +29,4 @@ const checkGrid = (): string => {
         return output
     };
 }
-export { 
-    checkGrid
- }
+export { checkGrid }

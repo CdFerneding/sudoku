@@ -142,44 +142,6 @@ class Grid {
             else return true;
         }
     }
-
-    //----------------------------checking end------------------------------
-
-    // public toString(): string {
-    //     let string: string = "";
-
-    //     // Add horizontal dividers between boxes
-    //     const boxDivider = "+---+---+---+\n";
-
-    //     for (let row = 0; row < 9; row++) {
-    //         if (row % 3 === 0 && row !== 0) {
-    //             // Add horizontal dividers between boxes
-    //             string += boxDivider;
-    //         }
-
-    //         for (let col = 0; col < 9; col++) {
-    //             if (col % 3 === 0 && col !== 0) {
-    //                 // Add vertical dividers between boxes
-    //                 string += "|";
-    //             }
-
-    //             const cell = this.getCell(row, col);
-    //             const value = cell.getValue();
-
-    //             if (value === 0) {
-    //                 string += " "; // Display empty cells as spaces
-    //             } else {
-    //                 string += value.toString();
-    //             }
-    //         }
-
-    //         string += "\n";
-    //     }
-
-    //     return string;
-    // }
-
-
 }
 
 export { Grid }
