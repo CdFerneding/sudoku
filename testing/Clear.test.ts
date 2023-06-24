@@ -1,4 +1,4 @@
-import { clearBoard, deleteBoard } from "../src/button/clear";
+import { clearBoard, deleteBoard } from "../src/Button/Clearing";
 
 describe.skip("clear", () => {
     test("should clear the grid by deleting all child elements of the grid", () => {

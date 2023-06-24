@@ -1,4 +1,4 @@
-import { Grid } from "../Entities/Grid";
+import { Grid } from "../Entity/Grid";
 import { applyHiddenSingle } from "./findNumbers/hiddenSingle";
 import { applySudokuRules } from "./reducePossibilities/sudokuRules";
 import { applyNakedSingle } from "./findNumbers/nakedSingle";
@@ -24,6 +24,7 @@ const solveSudoku = (grid: Grid): Grid => {
         oldGrid = grid.copy();
 
         // keeping track of strategies that reduce possibilities (not being sudoku rules)
+        // 
         if (hiddenSingleMadeChanges === true) {
             hasMadeChanges = true;
             hiddenSingleMadeChanges = false;

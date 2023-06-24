@@ -1,5 +1,5 @@
-import { deleteBoard } from "../button/clear";
-import { undoStack } from "../button/undo";
+import { deleteBoard } from "../Button/Clearing";
+import { undoStack } from "../Button/Undoing";
 
 const createBoard = (withGrid: number[][]): void => {
     // delete all Children of the grid div if it already has any

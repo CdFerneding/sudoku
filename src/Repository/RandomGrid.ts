@@ -1,12 +1,11 @@
-import { errorMonitor } from "events";
-import * as EasyGrids from "./Grids/gridsEasy";
-import * as HardGrids from "./Grids/gridsHard";
-import * as MediumGrids from "./Grids/gridsMedium";
+import * as EasyGrids from "./Grids/Easy";
+import * as HardGrids from "./Grids/Hard";
+import * as MediumGrids from "./Grids/Medium";
 
 /**
  * note: using Bracket Notation to Access the Grid Repos respectively
- * e.g: "EasyGrids[randGridName]"" is equivalent to:
- * "EasyGrids.easyGrid1", if randGridName is "easyGrid1"
+ * e.g: "Easy[randGridName]"" is equivalent to:
+ * "Easy.easyGrid1", if randGridName is "easyGrid1"
  */
 
 const getRandomEasyGrid = (): number[][] => {

@@ -1,6 +1,6 @@
-import { Grid } from "../src/Entities/Grid";
-import { testSudokuRules, testSudokuRulesCorrectSolution } from "../src/Repository/TestingGrids/testSudokuRules";
-import { applySudokuRules } from "../src/solveGrid/reducePossibilities/sudokuRules";
+import { Grid } from "../src/Entity/Grid";
+import { testSudokuRules, testSudokuRulesCorrectSolution } from "../src/Repository/Testing/SudokuRules";
+import { applySudokuRules } from "../src/Solve/reducePossibilities/sudokuRules";
 
 describe("sudoku Rules", () => {
 

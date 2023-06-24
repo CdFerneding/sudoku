@@ -83,3 +83,16 @@ body {
 .cell.rightline {
     border-right: 4px solid black;
 }
+
+.h1 {
+    padding-bottom: 50px;
+    font-weight: bold;
+}
+
+.explanation {
+    font-size: medium;
+}
+
+.padding-between-elements {
+    margin-bottom: 20px;
+}

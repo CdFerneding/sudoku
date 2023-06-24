@@ -1,4 +1,4 @@
-import { createBoard } from "../ManagingGrid/create";
+import { createBoard } from "../Managing/CreateGrid";
 
 // -----------------------------------------------clearing the Grid----------------------------------------------------------
 

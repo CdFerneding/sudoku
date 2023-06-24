@@ -1,6 +1,6 @@
 // naked Single at (0,8) 
-import { Cell } from "../../Entities/Cell";
-import { Grid } from "../../Entities/Grid";
+import { Cell } from "../../Entity/Cell";
+import { Grid } from "../../Entity/Grid";
 
 const testSudokuRulesData: number[][] = [
     [0, 5, 0, 0, 3, 0, 0, 0, 0],

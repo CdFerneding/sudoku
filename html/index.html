@@ -13,11 +13,11 @@
 
 <body>
     <div class="container">
-        <h1 style="margin-bottom: 50px; font-weight: bold;">Sudoku Spectrum</h1>
-        <div id="explanation" style="font-size: medium;">
+        <h1 class="h1">Sudoku Spectrum</h1>
+        <div id="explanation" class="explanation">
             <span>
                 <b>sudoku rules:</b> in every row, column need the number 1-9 appear exactly once. There is only one
-                right solution to a sudoku.<br>
+                right solution for a sudoku.<br>
                 <b>difficulty buttons:</b>
                 <ul>
                     <li>
@@ -55,10 +55,10 @@
                 </ul>
             </span>
         </div>
-        <button id="hide-explanation" type="button" class="btn btn-secondary" style="margin-bottom: 20px;">hide explanation</button>
+        <button id="hide-explanation" type="button" class="btn btn-secondary padding-between-elements">hide explanation</button>
 
         <!-- choose difficulty -->
-        <div id="choose-difficulty" style="margin-bottom: 20px;">
+        <div id="choose-difficulty" class="padding-between-elements">
             <h3 style="margin-bottom: 20px;">Choose Difficulty!</h3>
             <button id="difficulty-easy" type="button" class="btn btn-secondary">Easy</button>
             <button id="difficulty-medium" type="button" class="btn btn-secondary">Medium</button>
@@ -69,7 +69,7 @@
 
         <div id="gaming">
             <div id="grid"></div>
-            <div id="buttons" style="margin-bottom: 20px;">
+            <div id="buttons" class="padding-between-elements">
                 <button id="undo" type="button" class="btn btn-success btn-lg">undo</button>
                 <button id="check" type="button" class="btn btn-success btn-lg">check</button>
                 <button id="clear" type="button" class="btn btn-success btn-lg">clear</button>

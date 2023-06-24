@@ -1,9 +1,9 @@
-import { getCurrentGrid } from "../ManagingGrid/getGrid";
+import { getCurrentGrid } from "../Managing/GetGrid";
 // import { findNumbers } from "./findMissingNumbers";
-import { clearBoard, deleteBoard } from "./clear";
-import { createBoard } from "../ManagingGrid/create";
-import { Grid } from "../Entities/Grid";
-import { solveSudoku } from "../solveGrid/solveSudoku";
+import { clearBoard, deleteBoard } from "./Clearing";
+import { createBoard } from "../Managing/CreateGrid";
+import { Grid } from "../Entity/Grid";
+import { solveSudoku } from "../Solve/solveSudoku";
 
 const solveGrid = () => {
     console.log(`the solve button was pressed.`)

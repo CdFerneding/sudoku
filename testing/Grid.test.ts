@@ -1,6 +1,6 @@
-import { Grid } from "../src/Entities/Grid";
-import { easyGrid1 } from "../src/Repository/Grids/gridsEasy";
-import { cellsForCorrectSolution } from "../src/Repository/TestingGrids/testSudokuRules";
+import { Grid } from "../src/Entity/Grid";
+import { easyGrid1 } from "../src/Repository/Grids/Easy";
+import { cellsForCorrectSolution } from "../src/Repository/Testing/SudokuRules";
 
 const correctGridData = [
     [8, 5, 4, 7, 3, 1, 2, 6, 9],

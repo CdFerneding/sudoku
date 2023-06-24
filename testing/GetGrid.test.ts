@@ -1,5 +1,5 @@
-import { getCurrentGrid } from "../src/ManagingGrid/getGrid";
-import { easyGrid1 } from "../src/Repository/Grids/gridsEasy";
+import { getCurrentGrid } from "../src/Managing/GetGrid";
+import { easyGrid1 } from "../src/Repository/Grids/Easy";
 
 
 describe.skip("get Grid", () => {

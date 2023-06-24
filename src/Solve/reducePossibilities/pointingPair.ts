@@ -1,6 +1,12 @@
-import { Grid } from "../../Entities/Grid";
-import { Cell } from "../../Entities/Cell";
+import { Grid } from "../../Entity/Grid";
 
+
+/**
+ * for better understanding of the pointing pairs technique: 
+ * https://sudoku.com/sudoku-rules/pointing-pairs/
+ * @param grid 
+ * @returns grid with reduced possible values (if a pointing pair is found)
+ */
 const applyPointingPairs = (grid: Grid): Grid => {
     const updatedGrid = new Grid(grid.toNumberArray());
 

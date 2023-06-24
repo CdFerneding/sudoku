@@ -1,4 +1,4 @@
-import { Grid } from "../../Entities/Grid";
+import { Grid } from "../../Entity/Grid";
 
 const applyNakedSingle = (grid: Grid): Grid => {
     grid.getCells().forEach(function(cell) {
