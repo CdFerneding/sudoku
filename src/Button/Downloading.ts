@@ -22,7 +22,7 @@ const generateSudokuPDF = async () => {
     });
 
     // set footnote
-    const footnoteText = 'from a website by Conrad Ferneding';
+    const footnoteText: string = 'from a website by Conrad Ferneding';
     page.drawText(footnoteText, {
         x: 50,
         y: 30,

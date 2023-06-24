@@ -9,7 +9,7 @@ import { getCurrentGrid } from "../Managing/GetGrid";
  */
 const checkGrid = (): string => {
     console.log("in the checkGrid function");
-    let output: string;
+    let output: string = "";
     const gridData = getCurrentGrid();
     const grid: Grid = new Grid(gridData);
     if (grid === null || grid === undefined) {
