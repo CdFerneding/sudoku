@@ -1,6 +1,6 @@
-import { testHiddenSingle, testHiddenSingleCorrectResult } from "../src/Repository/TestingGrids/testHiddenSingle";
-import { Grid } from "../src/Entities/Grid";
-import { applyHiddenSingle } from "../src/solveGrid/findNumbers/hiddenSingle";
+import { testHiddenSingle, testHiddenSingleCorrectResult } from "../src/Repository/Testing/HiddenSingle";
+import { Grid } from "../src/Entity/Grid";
+import { applyHiddenSingle } from "../src/Solve/findNumbers/hiddenSingle";
 
 describe("hidden Single", () => {
 

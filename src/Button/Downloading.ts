@@ -1,5 +1,5 @@
 import { PDFDocument, PageSizes, rgb } from "pdf-lib";
-import { getCurrentGrid } from "../ManagingGrid/getGrid";
+import { getCurrentGrid } from "../Managing/GetGrid";
 
 const generateSudokuPDF = async () => {
     const gridData = getCurrentGrid(); // Get the current grid values

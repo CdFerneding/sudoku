@@ -1,5 +1,5 @@
-import { createBoard } from "./ManagingGrid/create";
-import * as RandomGrid from "./Repository/gettingRandomGrid";
+import { createBoard } from "./Managing/CreateGrid";
+import * as RandomGrid from "./Repository/RandomGrid";
 
 // debugger; 
 // lint; zod; prettier libs 
@@ -45,20 +45,17 @@ function hideExplanation() {
 }
 
 // difficulty event funcitons
-
 function createEasyGrid() {
     currentDifficulty.innerText = 'Easy Grid'
     // difficultyArea.style.display = 'none';
     gamingArea.style.display = 'block';
     createBoard(RandomGrid.getRandomEasyGrid());
 }
-
 function createMediumGrid() {
     currentDifficulty.innerText = 'Medium Grid'
     gamingArea.style.display = 'block';
     createBoard(RandomGrid.getRandomMediumGrid());
 }
-
 function createHardGrid() {
     currentDifficulty.innerText = 'Hard Grid'
     gamingArea.style.display = 'block';
@@ -70,7 +67,7 @@ const clearButton = document.getElementById(`clear`);
 if (clearButton !== null) {
     clearButton.addEventListener(`click`, async () => {
         try {
-            const { clearBoard } = await import("./button/clear");
+            const { clearBoard } = await import("./Button/Clearing");
             clearBoard();
         } catch (error) {
             console.log("Error while loading clearBoard:", error);
@@ -83,7 +80,7 @@ const checkerButton = document.getElementById("check");
 if (checkerButton !== null) {
     checkerButton.addEventListener("click", async () => {
         try {
-            const { checkGrid } = await import("./button/checkingGrid");
+            const { checkGrid } = await import("./Button/Checking");
             checkGrid();
         } catch (error) {
             console.log("Error while loading checkGrid:", error);
@@ -97,7 +94,7 @@ window.addEventListener("keydown", function (e) {
         // Execute Undo function when strg+z is pressed
         async () => {
             try {
-                const { undoStep } = await import("./button/undo");
+                const { undoStep } = await import("./Button/Undoing");
                 undoStep();
             } catch (error) {
                 console.log("Error while loading undoStep:", error);
@@ -111,7 +108,7 @@ const undoButton = document.getElementById(`undo`);
 if (undoButton !== null) {
     undoButton.addEventListener("click", async () => {
         try {
-            const { undoStep } = await import("./button/undo");
+            const { undoStep } = await import("./Button/Undoing");
             undoStep();
         } catch (error) {
             console.log("Error while loading undoStep:", error);
@@ -124,7 +121,7 @@ const solveButton = document.getElementById('solve');
 if (solveButton !== null || solveButton !== undefined) {
     solveButton.addEventListener('click', async () => {
         try {
-            const { solveGrid } = await import("./button/solve");
+            const { solveGrid } = await import("./Button/Solving");
             solveGrid();
         } catch (error) {
             console.log("Error while loading solveGrid:", error);
@@ -137,7 +134,7 @@ const downloadButton = document.getElementById(`download`);
 if (downloadButton !== null) {
     downloadButton.addEventListener("click", async () => {
         try {
-            const { generateSudokuPDF } = await import("./button/downloadGrid");
+            const { generateSudokuPDF } = await import("./Button/Downloading");
             generateSudokuPDF();
         } catch (error) {
             console.log("Error loading generateSudokuPDF:", error);

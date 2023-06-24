@@ -1,12 +1,12 @@
-import { Grid } from "../src/Entities/Grid";
+import { Grid } from "../src/Entity/Grid";
 
 /**
  * solve Sudoku can only solve the easy Grids yet
  */
 
-import { easyGrid1, easyGrid1CorrectlyFilled } from "../src/Repository/Grids/gridsEasy";
-import { solveGrid } from "../src/button/solve";
-import { solveSudoku } from "../src/solveGrid/solveSudoku";
+import { easyGrid1, easyGrid1CorrectlyFilled } from "../src/Repository/Grids/Easy";
+import { solveGrid } from "../src/Button/Solving";
+import { solveSudoku } from "../src/Solve/solveSudoku";
 
 describe("solve Sudoku", () => {
     test("should return a correctly filled grid", () => {

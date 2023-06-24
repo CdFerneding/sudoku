@@ -1,7 +1,10 @@
-import { getCurrentGrid } from "../src/ManagingGrid/getGrid";
-import { easyGrid1 } from "../src/Repository/Grids/gridsEasy";
+import { getCurrentGrid } from "../src/Managing/GetGrid";
+import { easyGrid1 } from "../src/Repository/Grids/Easy";
 
 
+/**
+ * Sadly mocking the body does not work yet. Just mocking the "querySelector" neither.
+ */
 describe.skip("get Grid", () => {
     
     beforeEach(() => {

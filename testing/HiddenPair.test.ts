@@ -1,6 +1,6 @@
-import { Grid } from "../src/Entities/Grid";
-import { testHiddenPair, testHiddenPairCorrectResult } from "../src/Repository/TestingGrids/testHiddenPair";
-import { solveSudoku } from "../src/solveGrid/solveSudoku";
+import { Grid } from "../src/Entity/Grid";
+import { testHiddenPair, testHiddenPairCorrectResult } from "../src/Repository/Testing/HiddenPair";
+import { solveSudoku } from "../src/Solve/solveSudoku";
 
 describe("hidden Pair", () => {
 

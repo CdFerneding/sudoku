@@ -1,12 +1,10 @@
-import { Cell } from "../../Entities/Cell";
-import { Grid } from "../../Entities/Grid";
+import { Cell } from "../../Entity/Cell";
+import { Grid } from "../../Entity/Grid";
 
 /**
- * naked Single: simple Technique:
- * a cell with a possible Value that is the only one of it's kind an entire row, column or box
- * @param cell 
+ * simply applying sudoku rules to reduce possibilities
  * @param grid 
- * @returns possibleValues: number[] according to the naked Single tactic 
+ * @returns grid with reduced possiblie values 
  */
 const applySudokuRules = (grid: Grid): Grid => {
     const cells = grid.getCells();

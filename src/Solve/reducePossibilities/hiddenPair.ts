@@ -1,6 +1,13 @@
-import { Grid } from "../../Entities/Grid";
-import { Cell } from "../../Entities/Cell";
+import { Grid } from "../../Entity/Grid";
+import { Cell } from "../../Entity/Cell";
 
+
+/**
+ * for better understanding:
+ * https://sudoku.com/sudoku-rules/hidden-pairs/
+ * @param grid 
+ * @returns 
+ */
 const applyHiddenPair = (grid: Grid): Grid => {
 
     // a unit are 9 cells (row, column or box)

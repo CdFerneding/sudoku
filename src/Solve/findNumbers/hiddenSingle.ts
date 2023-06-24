@@ -1,5 +1,4 @@
-import { Grid } from "../../Entities/Grid";
-import { Cell } from "../../Entities/Cell";
+import { Grid } from "../../Entity/Grid";
 
 const applyHiddenSingle = (grid: Grid): Grid => {
     for (let row = 0; row < 9; row++) {
